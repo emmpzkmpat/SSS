@@ -1,0 +1,18 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+#gameCanvas {
+    width: 99vw;
+    height: 98vh;
+    display: block;
+    background-color: #111;
+}
