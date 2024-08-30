@@ -12,7 +12,7 @@ let snakeSpeed = 40; // velocidad de la serpiente en milisegundos
 
 // Ajuste de la velocidad para dispositivos móviles
 if (navigator.userAgent.match(/Mobi/)) {
-    snakeSpeed = 100; // Velocidad más rapido en dispositivos móviles
+    snakeSpeed = 65; // Velocidad más rapido en dispositivos móviles
 }
 
 // Configuración inicial de la serpiente y comida
