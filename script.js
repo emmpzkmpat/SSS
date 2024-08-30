@@ -10,6 +10,11 @@ canvas.height = window.innerHeight;
 const gridSize = 20; // tamaño de cada celda de la serpiente y la comida
 let snakeSpeed = 40; // velocidad de la serpiente en milisegundos
 
+// Ajuste de la velocidad para dispositivos móviles
+if (navigator.userAgent.match(/Mobi/)) {
+    snakeSpeed = 150; // Velocidad más lenta en dispositivos móviles
+}
+
 // Configuración inicial de la serpiente y comida
 let snake = [{ x: Math.floor(canvas.width / 2 / gridSize) * gridSize, y: Math.floor(canvas.height / 2 / gridSize) * gridSize }];
 let snakeLength = 1;
@@ -76,14 +81,13 @@ function moveSnake() {
 
         if (pointsEaten >= 100) {
             // Comprobar la probabilidad de redirección para 100 puntos
-            if (Math.random() < 1 / 5) {
+            if (Math.random() < 1 / 6) {
                 // Redirigir a un enlace
                 window.location.href = 'https://emmpzkmpat.github.io/BLACK/'; // Reemplaza con tu enlace
                 return;
             }
             // Reiniciar el contador de puntos comidos
             pointsEaten = 0;
-
         } else if (pointsEaten >= 30) {
             // Comprobar la probabilidad de redirección para 30 puntos
             if (Math.random() < 1 / 2) {
