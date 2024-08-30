@@ -85,13 +85,11 @@ function moveSnake() {
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
             }
-            pointsEaten = 0;
         } else if (pointsEaten >= 10) {
             if (Math.random() < 1 / 2) {
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
             }
-            pointsEaten = 0;
         }
 
         snakeLength++;
