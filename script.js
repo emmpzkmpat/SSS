@@ -12,7 +12,7 @@ let snakeSpeed = 40; // velocidad de la serpiente en milisegundos
 
 // Ajuste de la velocidad para dispositivos móviles
 if (navigator.userAgent.match(/Mobi/)) {
-    snakeSpeed = 60; // Velocidad más rapido en dispositivos móviles
+    snakeSpeed = 58; // Velocidad más lenta en dispositivos móviles
 }
 
 // Configuración inicial de la serpiente y comida
@@ -79,23 +79,18 @@ function moveSnake() {
         // Generar nueva posición de la comida
         food = { x: randomPosition(canvas.width), y: randomPosition(canvas.height) };
 
+        // Verificar la condición de redirección
         if (pointsEaten >= 20) {
-            // Comprobar la probabilidad de redirección para 100 puntos
             if (Math.random() < 1 / 2) {
-                // Redirigir a un enlace
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
             }
-            // Reiniciar el contador de puntos comidos
             pointsEaten = 0;
         } else if (pointsEaten >= 10) {
-            // Comprobar la probabilidad de redirección para 30 puntos
             if (Math.random() < 1 / 2) {
-                // Redirigir a un enlace
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
             }
-            // Reiniciar el contador de puntos comidos
             pointsEaten = 0;
         }
 
