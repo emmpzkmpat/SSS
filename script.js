@@ -83,14 +83,14 @@ function moveSnake() {
             // Comprobar la probabilidad de redirección para 100 puntos
             if (Math.random() < 1 / 6) {
                 // Redirigir a un enlace
-                window.location.href = 'https://emmpzkmpat.github.io/BLACK/'; // Reemplaza con tu enlace
+                window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
             }
             // Reiniciar el contador de puntos comidos
             pointsEaten = 0;
         } else if (pointsEaten >= 30) {
             // Comprobar la probabilidad de redirección para 30 puntos
-            if (Math.random() < 1 / 2) {
+            if (Math.random() < 1 / 6) {
                 // Redirigir a un enlace
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
@@ -126,19 +126,39 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Control táctil para cambiar la dirección de la serpiente
-canvas.addEventListener('touchstart', (event) => {
-    const touch = event.touches[0];
-    const x = touch.clientX;
-    const y = touch.clientY;
+let touchStartX = 0;
+let touchStartY = 0;
 
-    if (x < canvas.width / 2 && y < canvas.height / 2) {
-        direction = { x: 0, y: -gridSize }; // Arriba
-    } else if (x < canvas.width / 2 && y > canvas.height / 2) {
-        direction = { x: 0, y: gridSize }; // Abajo
-    } else if (x > canvas.width / 2 && y < canvas.height / 2) {
-        direction = { x: -gridSize, y: 0 }; // Izquierda
-    } else if (x > canvas.width / 2 && y > canvas.height / 2) {
-        direction = { x: gridSize, y: 0 }; // Derecha
+canvas.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Prevenir el comportamiento de desplazamiento por defecto
+    const touch = event.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+});
+
+canvas.addEventListener('touchend', (event) => {
+    event.preventDefault();
+    const touch = event.changedTouches[0];
+    const touchEndX = touch.clientX;
+    const touchEndY = touch.clientY;
+
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Movimiento horizontal
+        if (diffX > 0) {
+            if (direction.x === 0) direction = { x: gridSize, y: 0 }; // Derecha
+        } else {
+            if (direction.x === 0) direction = { x: -gridSize, y: 0 }; // Izquierda
+        }
+    } else {
+        // Movimiento vertical
+        if (diffY > 0) {
+            if (direction.y === 0) direction = { x: 0, y: gridSize }; // Abajo
+        } else {
+            if (direction.y === 0) direction = { x: 0, y: -gridSize }; // Arriba
+        }
     }
 });
 
