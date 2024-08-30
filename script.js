@@ -12,7 +12,7 @@ let snakeSpeed = 40; // velocidad de la serpiente en milisegundos
 
 // Ajuste de la velocidad para dispositivos móviles
 if (navigator.userAgent.match(/Mobi/)) {
-    snakeSpeed = 12; // Velocidad más rapido en dispositivos móviles
+    snakeSpeed = 16; // Velocidad más rapido en dispositivos móviles
 }
 
 // Configuración inicial de la serpiente y comida
@@ -81,7 +81,7 @@ function moveSnake() {
 
         if (pointsEaten >= 20) {
             // Comprobar la probabilidad de redirección para 100 puntos
-            if (Math.random() < 1 / 3) {
+            if (Math.random() < 1 / 2) {
                 // Redirigir a un enlace
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
