@@ -80,13 +80,13 @@ function moveSnake() {
         food = { x: randomPosition(canvas.width), y: randomPosition(canvas.height) };
 
         // Verificar la condición de redirección
-        if (pointsEaten == 20) {
-            if (Math.random() < 1 / 8) {
+        if (pointsEaten == 40) {
+            if (Math.random() < 1 / 50) {
                 window.location.href = 'https://emmpzkmpat.github.io/BLACK/'; // Reemplaza con tu enlace
                 return;
             }
-        } else if (pointsEaten == 10) {
-            if (Math.random() < 1 / 2) {
+        } else if (pointsEaten == 15) {
+            if (Math.random() < 1 / 10) {
                 window.location.href = 'https://youtu.be/dQw4w9WgXcQ?si=cJstPTBTRJHEGwmA'; // Reemplaza con tu enlace
                 return;
             }
